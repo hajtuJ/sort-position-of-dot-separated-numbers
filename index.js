@@ -21,9 +21,8 @@ export const sort = function(d) {
             // if true
                 // means longer position was equal on all indexes (always neg. value will be returned)
             // if false
-                // means on some of value at index from range 0 to 'm' was different
+                // means on some of value at index from range 0 to last index of shortest array was different
                 // so we are checking which value at that position is smaller by subtraction 
-                // which result will define how sort() will move elements of comparison
                 // we will return number 
                     // if b > a => negative 
                     // if a > b => positive
