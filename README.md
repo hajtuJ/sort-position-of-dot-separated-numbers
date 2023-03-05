@@ -4,7 +4,7 @@ Before testing install dependencies `npm i` or `yarn`.
 
 Run tests `npm run test` or `yarn test`
 
-## Explaination
+## Explanation
 _How returned value of `sort()` implementation works_:
 
 __Return value__ | __sort order__
