@@ -5,16 +5,16 @@ export const sort = function(d) {
         const bPosArr = b.split('.').map(Number);
 
         // control number of index till which numbers are equal
-        let l = 0; //equality index
+        let differenceIndex = 0;
         
-        // getting smallest length of compared arrays
-        const m = Math.min(aPosArr.length, bPosArr.length);
+        // getting smaller length of compared arrays
+        const lengthOfShorterPosition = Math.min(aPosArr.length, bPosArr.length);
 
         // increasing equality index of value till numbers are different 
         // or we loop over all values of shortest array if all are equal 
         // (example: a = 1.2.3, b = 1.2.3.8)
-        while (l < m && aPosArr[l] === bPosArr[l]) {
-            l++;
+        while (differenceIndex < lengthOfShorterPosition && aPosArr[differenceIndex] === bPosArr[differenceIndex]) {
+            differenceIndex++;
         }
 
         // checking we loop through whole shortest array values
@@ -26,27 +26,27 @@ export const sort = function(d) {
                 // we will return number 
                     // if b > a => negative 
                     // if a > b => positive
-        return l === m ? aPosArr.length - bPosArr.length : aPosArr[l] - bPosArr[l];
+        return differenceIndex === lengthOfShorterPosition ? aPosArr.length - bPosArr.length : aPosArr[differenceIndex] - bPosArr[differenceIndex];
     });
 }
 
 export const bubbleSort = function (d) {
         for(let i = 0; i < d.length; i++){
             // Last i elements are already in place
-            for(let j = 0; j < ( d.length - i -1 ); j++){
+            for(let j = 0; j < ( d.length - i -1 ); j++) {
                 // Checking if the item at present iteration
                 // is greater than the next iteration
                 const aPosArr = d[j].split('.').map(Number);
                 const bPosArr = d[j+1].split('.').map(Number);
-                let l = 0; //equality index
-                const m = Math.min(aPosArr.length, bPosArr.length);
+                let differenceIndex = 0;
+                const lengthOfShorterPosition = Math.min(aPosArr.length, bPosArr.length);
 
-                while (l < m && aPosArr[l] === bPosArr[l]) {
-                    l++;
+                while (differenceIndex < lengthOfShorterPosition && aPosArr[differenceIndex] === bPosArr[differenceIndex]) {
+                    differenceIndex++;
                 }
 
                 let temp = d[j];
-                if (l !== m && aPosArr[l] > bPosArr[l]) {
+                if (differenceIndex !== lengthOfShorterPosition && aPosArr[differenceIndex] > bPosArr[differenceIndex]) {
                     d[j] = d[j + 1];
                     d[j+1] = temp;
                 }
