@@ -29,3 +29,28 @@ export const sort = function(d) {
         return l === m ? aPosArr.length - bPosArr.length : aPosArr[l] - bPosArr[l];
     });
 }
+
+export const bubbleSort = function (d) {
+        for(let i = 0; i < d.length; i++){
+            // Last i elements are already in place
+            for(let j = 0; j < ( d.length - i -1 ); j++){
+                // Checking if the item at present iteration
+                // is greater than the next iteration
+                const aPosArr = d[j].split('.').map(Number);
+                const bPosArr = d[j+1].split('.').map(Number);
+                let l = 0; //equality index
+                const m = Math.min(aPosArr.length, bPosArr.length);
+
+                while (l < m && aPosArr[l] === bPosArr[l]) {
+                    l++;
+                }
+
+                let temp = d[j];
+                if (l !== m && aPosArr[l] > bPosArr[l]) {
+                    d[j] = d[j + 1]
+                    d[j+1] = temp
+                }
+            }
+        }
+        return d;
+}

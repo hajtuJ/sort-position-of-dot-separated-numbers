@@ -1,6 +1,6 @@
 import { describe, it, expect } from '@jest/globals';
 import { correctOrderedTestData, randomizedOrderTestData } from './stub';
-import { sort } from './index';
+import { sort, bubbleSort } from './index';
 
 
 describe('testing sort', () => {
@@ -9,8 +9,13 @@ describe('testing sort', () => {
             .not.toStrictEqual(randomizedOrderTestData);
     });
 
-    it('is returning randomized data in correct order', () => { 
+    it('is returning randomized data in correct order', () => {
         expect(correctOrderedTestData)
             .toStrictEqual(sort(randomizedOrderTestData));
+    });
+
+    it('is returning randomized data in correct order via bubble sort', () => {
+        expect(correctOrderedTestData)
+            .toStrictEqual(bubbleSort(randomizedOrderTestData));
     });
 });
