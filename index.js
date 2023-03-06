@@ -47,8 +47,8 @@ export const bubbleSort = function (d) {
 
                 let temp = d[j];
                 if (l !== m && aPosArr[l] > bPosArr[l]) {
-                    d[j] = d[j + 1]
-                    d[j+1] = temp
+                    d[j] = d[j + 1];
+                    d[j+1] = temp;
                 }
             }
         }
